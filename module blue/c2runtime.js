@@ -231,7 +231,7 @@ r.play=function(a,b) {
 		this.$b||(this.s=P.createBufferSource(),this.s.buffer=this.buffer.ya,this.s.connect(P.destination));
 		this.s.loop=a;
 		// console.log(this.s);
-		if ( navigator.userAgent.indexOf("Safari") > -1 ) {
+		if ( /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor) ) {
 			this.s.gain.value=b;
 			this.s.noteOn(0);
 		}
