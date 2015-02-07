@@ -229,7 +229,7 @@ w.play=function(a,b){
 		this.Hk=1;
 		this.Fb||(this.s=R.createBufferSource(),this.s.buffer=this.buffer.Ha,this.s.connect(R.destination));
 		this.s.loop=a;
-		if ( navigator.userAgent.indexOf("Safari") > -1 ) {
+		if ( /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor) ) {
 			this.s.gain.value=b;
 			this.s.noteOn(0);
 		}
