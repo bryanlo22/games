@@ -232,8 +232,7 @@ r.play=function(a,b) {
 		this.s.loop=a;
 		// console.log(this.s);
 		if ( /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor) ) {
-			this.s.gain.value=b;
-			this.s.noteOn(0);
+			this.s.start();
 		}
 		break;
 		case wc:!this.$b&&this.wa&&c.seekTo(0);
@@ -246,9 +245,9 @@ r.play=function(a,b) {
 	this.startTime=sc.Dd.gb;
 	this.wa=this.$b=k
 };
-r.stop=function(){switch(this.cb){case tc:this.s.paused||this.s.pause();break;case rc:this.s.noteOff(0);break;case wc:this.s.stop()}this.wa=d};
+r.stop=function(){switch(this.cb){case tc:this.s.paused||this.s.pause();break;case rc:this.s.stop();break;case wc:this.s.stop()}this.wa=d};
 r.Xo=function(){var a=this.playbackRate;if(1===Hc&&!this.gg||2===Hc)a*=sc.zf;switch(this.cb){case tc:this.s.playbackRate!==a&&(this.s.playbackRate=a);break;case rc:this.s.playbackRate.value!==a&&(this.s.playbackRate.value=a)}};
-r.Ki=function(a){switch(this.cb){case tc:a?!this.$b&&!this.wa?(this.s.pause(),this.Dc=d):this.Dc=k:this.Dc&&this.s.play();break;case rc:a?!this.$b&&!this.wa?(this.s.noteOff(0),this.Dc=d):this.Dc=k:this.Dc&&(this.s=P.createBufferSource(),this.s.buffer=this.buffer.ya,this.s.connect(P.destination),this.s.loop=this.ii,this.s.gain.value=this.volume*this.Yk,this.s.noteOn(0));break;case wc:a?!this.$b&&!this.wa?(this.s.pause(),this.Dc=d):this.Dc=k:this.Dc&&this.s.play()}};
+r.Ki=function(a){switch(this.cb){case tc:a?!this.$b&&!this.wa?(this.s.pause(),this.Dc=d):this.Dc=k:this.Dc&&this.s.play();break;case rc:a?!this.$b&&!this.wa?(this.s.stop(),this.Dc=d):this.Dc=k:this.Dc&&(this.s=P.createBufferSource(),this.s.buffer=this.buffer.ya,this.s.connect(P.destination),this.s.loop=this.ii,this.s.gain.value=this.volume*this.Yk,this.s.noteOn(0));break;case wc:a?!this.$b&&!this.wa?(this.s.pause(),this.Dc=d):this.Dc=k:this.Dc&&this.s.play()}};
 Dc.N=function(a){this.type=a;sc=this.a=a.a;zc=this;P=f;"undefined"!==typeof AudioContext?(qc=rc,P=new AudioContext):"undefined"!==typeof webkitAudioContext&&(qc=rc,P=new webkitAudioContext);this.a.Cd&&qc===rc&&document.addEventListener("touchstart",function(){if(!Ic){var a=P.createBuffer(1,1,22050),c=P.Sp();c.buffer=a;c.Qp(P.Tp);c.kq(0);Ic=d}},d);qc!==rc&&(this.a.Bd?qc=wc:this.a.ae&&(qc=xc));qc===wc&&(Ac=location.href,a=Ac.lastIndexOf("/"),-1<a&&(Ac=Ac.substr(0,a+1)),Ac=Ac.replace("file://",""));
 this.a.eo&&this.a.Ek&&"undefined"===typeof Audio?(alert("It looks like you're using Safari for Windows without Quicktime.  Audio cannot be played until Quicktime is installed."),this.a.jd(this)):(Gc=this.a.vb?this.a.Sh:!!(new Audio).canPlayType('audio/ogg; codecs="vorbis"'),this.a.aj(this))};var Jc=Dc.N.prototype;Jc.A=function(){Hc=this.l[0];this.a.tm(function(a){zc.so(a)})};Jc.so=function(a){var b,c;b=0;for(c=vc.length;b<c;b++)vc[b].Ki(a)};
 Jc.gc=function(){var a,b,c;a=0;for(b=vc.length;a<b;a++)c=vc[a],c.cb!==tc&&c.cb!==xc&&(!c.$b&&!c.wa&&c.Nh())&&(c.wa=d,yc=c.xf,sc.trigger(O.prototype.c.$g,zc)),0!==Hc&&c.Xo()};Jc.zn=function(a,b){var c,e,g;c=0;for(e=Ec.length;c<e;c++)if(g=Ec[c],g.src===a)return g;g=new pc(a,b);Ec.push(g);return g};
