@@ -231,9 +231,7 @@ r.play=function(a,b) {
 		this.$b||(this.s=P.createBufferSource(),this.s.buffer=this.buffer.ya,this.s.connect(P.destination));
 		this.s.loop=a;
 		// console.log(this.s);
-		if ( /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor) ) {
-			this.s.start();
-		}
+		this.s.start();
 		break;
 		case wc:!this.$b&&this.wa&&c.seekTo(0);
 		c.play();
